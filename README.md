@@ -16,7 +16,7 @@ The repository is a UI prototype, not a production CoC client. The CoC runtime c
 ```text
 Keeper Workbench
     ↓ authenticated, audience-safe gateway
-CoC MCP (planned)
+SagaSmith CoC MCP (session exposure and actor-scoped state)
     ↓
 sagasmith-coc + sagasmith-core
 ```
