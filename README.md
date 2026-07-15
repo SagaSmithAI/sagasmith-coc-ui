@@ -1,46 +1,39 @@
-# Astro Starter Kit: Basics
+# SagaSmith CoC UI
 
-```sh
-npm create astro@latest -- --template basics
-```
+**Prototype Keeper workbench for the SagaSmithAI Call of Cthulhu 7e stack.** This repository explores how investigators, clues, SAN, scenes, handouts, chases, and snapshot continuity should be presented during a live investigation.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Current status
 
-## 🚀 Project Structure
+The repository is a UI prototype, not a production CoC client. The CoC runtime currently exposes a JSON CLI and has not yet reached the independent MCP/session-exposure boundary used by the D&D reference stack. Until that boundary and an authenticated gateway exist:
 
-Inside of your Astro project, you'll see the following folders and files:
+- no browser view should claim authoritative writes;
+- Keeper-only scene data must never be filtered only in client code;
+- commercial scenario content must not be bundled into the frontend;
+- UI mock data must remain clearly labeled.
+
+## Intended architecture
 
 ```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+Keeper Workbench
+    ↓ authenticated, audience-safe gateway
+CoC MCP (planned)
+    ↓
+sagasmith-coc + sagasmith-core
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+The future workbench should cover the current scene and visibility, investigator sheets, clue/handout graph, SAN and insanity state, chase/combat timeline, scenario node navigation, and branch-aware snapshots.
 
-## 🧞 Commands
+## Development
 
-All commands are run from the root of the project, from a terminal:
+Requires Node.js 22.12+.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+```bash
+npm install
+npm run dev
+npm run build
+npm run preview
+```
 
-## 👀 Want to learn more?
+## License
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+MIT. Call of Cthulhu and commercial scenario content belong to their respective rights holders and are not included.
